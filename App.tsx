@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   //string
@@ -49,11 +49,13 @@ export default function App() {
 
       </View>
       <Button title="Click me" onPress={() => alert("Button clicked!")} />
-      <View style={{ marginTop: 20 }}>
-        {todoList.map((todo => (
-          <Text style={styles.todo}>{todo.title}</Text>
-        )))}
-      </View>
+      <ScrollView style={{ marginTop: 20 }}>
+        {todoList.map((todo) => (
+          <Text key={todo.id} style={styles.todo}>
+            {todo.title}
+          </Text>
+        ))}
+      </ScrollView>
       <Text style={styles.text}>Hello World  by Tan
         <TextInput />
 
